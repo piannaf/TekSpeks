@@ -1,0 +1,37 @@
+<div class="view_box" id="new_product">
+
+<% form_for(@product) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name, "Specify Product's Name" %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :brand_id, "Specify Product's Brand" %><br />
+    <%= f.collection_select :brand_id,
+      Brand.find(:all),
+      :id, :name,
+      :prompt => "Select a Brand"
+    %>
+  </p>
+  <p>
+    <%= f.label :category_ids, "Put Product in one or more Categories" %>
+    <ul>
+      <%= render :partial => 'checkbox_category', :collection => Category.find_all_by_parent_id(0) %>
+    </ul>
+  </p>
+  <p>
+    <%= f.label :specification_ids, "Give Product one or more Specifications" %>
+    <ul>
+      <%= render :partial => 'checkbox_specification', :collection => SpecAttribute.find(:all) %>
+    </ul>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', products_path %>
+
+</div>

@@ -1,0 +1,21 @@
+<div class="view_box" id="specification_<%=h specification.id %>">
+	<% if specification.spec_attribute then %>
+		<span class="view_title_link">
+		  <%= link_to "#{specification.spec_attribute.name}: #{specification.spec_value}#{specification.unit.abbrev}", specification%>
+		</span>
+	<% else %>
+		<span class="view_title_link">
+		  <%= link_to "#{specification.spec_value}", specification%>
+		</span>
+	<% end %>
+	<div class="specs">
+	  <% for product in specification.products %>
+	    <%= link_to product.name, product %><br />
+	  <% end %>
+	</div>
+	
+	<div class="view_admin_box" id="admin_box_<%=h specification.id %>">
+	  <%= link_to 'Edit', edit_specification_path(specification) %> |
+	  <%= link_to 'Destroy', delete_specification_path(specification) %>
+	</div>
+</div>

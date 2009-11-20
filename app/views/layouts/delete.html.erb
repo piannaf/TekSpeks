@@ -1,0 +1,12 @@
+<div class="view_box" id="unit_<%=h @unit.id %>">
+    <span class="view_title_link">
+      Are you sure you want to delete <%= link_to @unit.name.pluralize, @unit%> (<%= @unit.abbrev %>) [<%= @unit.system %>]
+    </span>
+  <p>
+	<% form_for @unit, :html => { :method => 'delete' } do |f| %>
+			<%= f.error_messages %>
+	    <%= submit_tag "Delete" %>
+	    <%= submit_tag "Cancel", :name => "cancel" %>
+	<% end %>
+	</p>
+</div>

@@ -1,0 +1,24 @@
+  <div class="view_box" id="attr_type_<%=h attr_type.id %>">
+    <span class="view_title_link">
+      <%= link_to attr_type.name, attr_type%>
+    </span>
+
+    <div class="specs">
+      Units of this type:<br />
+      <% for unit in attr_type.units %>
+        <%= link_to unit.name, unit %><br />
+      <% end %>
+    </div>
+
+    <div class="specs">
+      Attributes of this type:<br />
+      <% for spec_attribute in attr_type.spec_attributes %>
+        <%= link_to spec_attribute.name, spec_attribute %><br />
+      <% end %>
+    </div>
+
+    <div class="view_admin_box" id="admin_box_<%=h attr_type.id %>">
+      <%= link_to 'Edit', edit_attr_type_path(attr_type) %> |
+      <%= link_to 'Destroy', delete_attr_type_path(attr_type) %>
+    </div>
+  </div>

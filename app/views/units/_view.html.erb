@@ -1,0 +1,22 @@
+  <div class="view_box" id="unit_<%=h unit.id %>">
+    <span class="view_title_link">
+      <%= link_to unit.name.pluralize, unit%> (<%= unit.abbrev %>) [<%= unit.system %>]
+    </span>
+
+    <div class="specs">
+
+      <% for spec_attribute in unit.attr_type.spec_attributes %>
+        <%= spec_attribute.name %>:<br />
+        <% for specification in spec_attribute.specifications %>
+        	<% if specification.unit == unit then %>
+          	&nbsp;&nbsp; <%= link_to "#{specification.spec_value}#{specification.unit.abbrev}", specification %><br />
+        	<% end %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="view_admin_box" id="admin_box_<%=h unit.id %>">
+      <%= link_to 'Edit', edit_unit_path(unit) %> |
+      <%= link_to 'Destroy', delete_unit_path(unit) %>
+    </div>
+  </div>

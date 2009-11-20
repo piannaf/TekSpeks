@@ -1,0 +1,17 @@
+<div class="view_box" id="category_<%=h @category.id %>">
+  <span class="view_title_link">
+    <%= @category.category %>
+  </span>
+
+  <div class="specs">
+    <% for product in @category.products %>
+      <%= link_to product.name, product %><br />
+    <% end %>
+  </div>
+
+  <div class="view_admin_box" id="admin_box_<%=h @category.id %>">
+    <%= link_to 'Edit', edit_category_path(@category) %> |
+    <%= link_to 'Destroy', @category, :confirm => 'Are you sure?', :method => :delete %>
+  </div>
+
+</div>

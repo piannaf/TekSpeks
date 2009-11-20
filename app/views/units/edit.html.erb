@@ -1,0 +1,34 @@
+<div class="view_box" id="unit_<%=h @unit.id %>">
+
+<% form_for(@unit) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name, "Change Unit's Name" %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :abbrev, "Change Unit's Abbreviation" %><br />
+    <%= f.text_field :abbrev %>
+  </p>
+  <p>
+    <%= f.label :attr_type_id, "Specify New Unit's Type" %><br />
+
+    <%= f.collection_select :attr_type_id,
+      AttrType.find(:all),
+      :id, :name,
+      :prompt => "Select a Type"
+    %>
+  </p>
+  <p>
+    <%= f.label :system, "Specify System of Measurement" %><br />
+    <%= f.select(:system, ["Metric", "Imperial", "other"]) %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @unit %> |
+<%= link_to 'Back', units_path %>
+</div>

@@ -1,0 +1,16 @@
+<div class="view_box" id="brand_<%=h brand.id %>">
+<span class="view_title_link">
+  <%= link_to brand.name, brand%>
+</span>
+
+<div class="specs">
+  <% for product in brand.products %>
+    <%= link_to product.name, product %><br />
+  <% end %>
+</div>
+
+<div class="view_admin_box" id="admin_box_<%=h brand.id %>">
+  <%= link_to 'Edit', edit_brand_path(brand) %> |
+  <%= link_to 'Destroy', delete_brand_path(brand) %>
+</div>
+</div>

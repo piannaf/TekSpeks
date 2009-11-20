@@ -1,0 +1,37 @@
+<div class="view_box" id="specification_<%=h @specification.id %>">
+  
+  <% if !@specification.products.blank? then %>
+    <span class="view_title_link">
+	  	There are products which reference this specification. Please follow the links to delete these products if appropriate before trying to delete this specification.
+    </span>
+    
+    <p>
+    	<div class="specs">
+			  <% for product in @specification.products %>
+			    <%= link_to product.name, product %><br />
+			  <% end %>
+			</div>
+		  
+			<%= link_to 'Back', specifications_path %>
+
+  	</p>
+	<% else %>
+		<% if @specification.spec_attribute then %>
+			<span class="view_title_link">
+			  Are you sure you want to delete <%= link_to "#{@specification.spec_attribute.name}: #{@specification.spec_value}#{@specification.unit.abbrev}", @specification%>?
+			</span>
+		<% else %>
+			<span class="view_title_link">
+			  Are you sure you want to delete <%= link_to "#{@specification.spec_value}", @specification%>?
+			</span>
+		<% end %>
+	  <p>
+			<% form_for @specification, :html => { :method => 'delete' } do |f| %>
+					<%= f.error_messages %>
+			    <%= submit_tag "Delete" %>
+			    <%= submit_tag "Cancel", :name => "cancel" %>
+			<% end %>
+		</p>
+	<% end %>
+
+</div>

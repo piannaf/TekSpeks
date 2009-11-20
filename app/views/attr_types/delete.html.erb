@@ -1,0 +1,38 @@
+<div class="view_box" id="attr_type_<%=h @attr_type.id %>">
+	<% if !@attr_type.spec_attributes.blank? || !@attr_type.units.blank? then %>
+		<span class="view_title_link">
+			This attribute type references units or attributes. Please follow the links to edit or delete these attributes or units if appropriate before trying to delete this attribute type.
+		</span>
+	
+		<p>
+		<% if !@attr_type.units.blank? then %>
+			<h3>Units</h3>
+			<div class="specs">
+				<% for unit in @attr_type.units %>
+		      <%= link_to "#{unit.name}", unit %><br />
+		    <% end %>
+		  </div>
+		<% end %>
+		<% if !@attr_type.spec_attributes.blank? then %>
+			<h3>Attributes</h3>
+		  <div class="specs">
+				<% for spec_attribute in @attr_type.spec_attributes %>
+		      <%= link_to "#{spec_attribute.name}", spec_attribute %><br />
+		    <% end %>
+		  </div>
+		<% end %>
+		  <%= link_to 'Back', attr_types_path %>
+		</p>
+	<% else %>
+    <span class="view_title_link">
+      Are you sure you want to delete <%= link_to @attr_type.name, @attr_type%>
+    </span>
+  	<p>
+		<% form_for @attr_type, :html => { :method => 'delete' } do |f| %>
+			<%= f.error_messages %>
+	    <%= submit_tag "Delete" %>
+	    <%= submit_tag "Cancel", :name => "cancel" %>
+		<% end %>
+		</p>
+	<% end %>
+</div>

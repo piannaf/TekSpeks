@@ -1,0 +1,17 @@
+<div class="view_box" id="brand_<%=h @brand.id %>">
+  <% form_for(@brand) do |f| %>
+
+    <%= f.error_messages %>
+
+    <p>
+      <%= f.label :name, "Change Brand's Name" %><br />
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.submit "Update" %>
+    </p>
+  <% end %>
+
+  <%= link_to 'Show', @brand %> |
+  <%= link_to 'Back', brands_path %>
+</div>

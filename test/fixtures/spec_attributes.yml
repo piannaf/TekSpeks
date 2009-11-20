@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+height:
+    name: height
+    attr_type: length
+
+weight:
+    name: weight
+    attr_type: mass
+    
+width:
+    name: width
+    attr_type: length

@@ -1,0 +1,32 @@
+<div class="view_box" id="unit_<%=h @unit.id %>">
+  
+  <% if !@unit.specifications.blank? then %>
+    <span class="view_title_link">
+	  	There are specifications which reference this unit. Please follow the links to delete these specifications if appropriate before trying to delete this unit.
+    </span>
+    
+    <p>
+	  	<div class="specs">
+		    <% for spec_attribute in @unit.attr_type.spec_attributes %>
+		    <%= spec_attribute.name %>:<br />
+		    <% for specification in spec_attribute.specifications %>
+		      &nbsp;&nbsp; <%= link_to "#{specification.spec_value}#{specification.unit.abbrev}", specification %><br />
+		    <% end %>
+		    <% end %>
+		  </div>
+		  <%= link_to 'Back', units_path %>
+  	</p>
+	<% else %>
+	  <span class="view_title_link">
+      Are you sure you want to delete <%= link_to @unit.name.pluralize, @unit%> (<%= @unit.abbrev %>) [<%= @unit.system %>]?
+    </span>
+    <p>
+			<% form_for @unit, :html => { :method => 'delete' } do |f| %>
+				<%= f.error_messages %>
+		    <%= submit_tag "Delete" %>
+		    <%= submit_tag "Cancel", :name => "cancel" %>
+			<% end %>
+		</p>
+	<% end %>
+
+</div>

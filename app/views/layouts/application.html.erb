@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title><%= params[:controller].humanize %>: <%= controller.action_name %>  </title>
+  <%= stylesheet_link_tag 'scaffold' %>
+</head>
+<body>
+  <div id="site_top">
+    <div id="frame_top"></div>
+  </div>
+  <div id="site_bottom">
+    <div id="frame_bottom"></div>
+  </div>
+
+
+  <p style="color: green"><%= flash[:notice] %></p>
+    <div id="frame">
+
+      <div id="site_header">
+        <p style="font-size: 6em; margin-top: .3em; text-align: center;">TekSpeks Beta 0.3</p>
+        <div id="admin_menu">
+          <%= link_to 'Products', products_path %> |
+          <%= link_to 'Brands', brands_path %> |
+          <%= link_to 'Categories', categories_path %> |
+          <%= link_to 'Specifications', specifications_path %> |
+          <%= link_to 'Spec_attributes', spec_attributes_path %> |
+          <%= link_to 'Units', units_path %> |
+          <%= link_to 'Types', attr_types_path %>
+        </div>
+      </div>
+
+      <div id="adwords"></div>
+
+      <div id="content">
+        <%= page_header %>
+
+        <%= yield  %>
+      </div>
+    </div>
+</body>
+</html>

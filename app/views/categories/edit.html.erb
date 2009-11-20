@@ -1,0 +1,25 @@
+<div class="view_box" id="category_<%=h @category.id %>">
+
+<% form_for(@category) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :category, "Change Category's Name" %><br />
+    <%= f.text_field :category %>
+  </p>
+  <p>
+    <%= f.label :parent_id, "Change Category's Parent" %><br />
+    <%= select "category", "parent_id",
+    	Category.find(:all, :conditions => [ "id != ?", @category.id ], :order => "parent_id ASC" ).collect { |u| [ "-->" + u.category, u.id ]},
+    	{ :include_blank => "No Parent" }
+    %>
+  </p>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @category %> |
+<%= link_to 'Back', categories_path %>
+</div>

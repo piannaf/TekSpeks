@@ -1,0 +1,28 @@
+<div class="view_box" id="brand_<%=h @brand.id %>">
+	<% if !@brand.products.blank? then %>
+    <span class="view_title_link">
+     There are products which reference this brand. Please follow the links to edit or delete these products if appropriate before trying to delete this brand.
+    </span>
+    
+    <p>
+    	<div class="specs">
+			  <% for product in @brand.products %>
+			    <%= link_to product.name, product %><br />
+			  <% end %>
+			</div>
+		  
+			<%= link_to 'Back', brands_path %>
+  	</p>
+  <% else %>	
+    <span class="view_title_link">
+      Are you sure you want to delete <%= link_to @brand.name, @brand%>
+    </span>
+  	<p>
+		<% form_for @brand, :html => { :method => 'delete' } do |f| %>
+			<%= f.error_messages %>
+	    <%= submit_tag "Delete" %>
+	    <%= submit_tag "Cancel", :name => "cancel" %>
+		<% end %>
+		</p>
+	<% end %>
+</div>

@@ -1,0 +1,10 @@
+<li id="cat_<%= checkbox_category.id %>">
+  <%= check_box_tag "product[category_ids][]", checkbox_category.id, @product.categories.include?(checkbox_category) %>
+  <%= checkbox_category.category %>
+
+  <ul>
+    <% if !checkbox_category.children.empty? %>
+      <%= render :partial => "checkbox_category", :collection => checkbox_category.children %>
+    <% end %>
+  </ul>
+</li>

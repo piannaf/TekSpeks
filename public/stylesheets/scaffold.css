@@ -1,0 +1,298 @@
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+
+div {
+    border: none;
+}
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/*custom*/
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 20px;
+  font-weight: 300;
+  color: black;
+
+  background-image: url('../images/background/cardboard_brown_1000x888.jpg');
+  background-position: top center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color: #ffffff;
+}
+
+a {color: #600;}
+a:visited { color: #822; }
+a:hover { color: #fff;}
+
+p {
+    margin-left: 10px;
+}
+
+/*Background/Foreground*/
+
+#site_top, #site_bottom {
+  position: fixed;
+  left: 0;
+  right: 0;
+  display: block;
+  background-position: top center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  z-index: 80;
+
+}
+
+#site_top{
+  top: 0;
+  background-image: url('../images/background/cardboard_brown_1000x888.jpg');
+  height: 30px;
+}
+#site_bottom{
+  bottom: 0px;
+  background-image: url('../images/background/cardboard_brown_1000x888.jpg');
+  height: 60px;
+}
+
+
+
+#frame_top, #frame_bottom {
+  position: relative;
+  margin: 0 auto 0 auto;
+  
+  background-position: top center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  left: 21px;
+
+  height: 10px;
+  width: 878px;
+  z-index: 9;
+}
+
+#frame_top{
+  top: 23px;
+  background-image: url('../images/background/cardboard_red_1000x888.jpg');
+}
+#frame_bottom{
+  top: 0px;
+  background-image: url('../images/background/cardboard_red_1000x888.jpg');
+}
+
+/*content boxes*/
+
+#frame {
+  position: relative;
+  left: 50%;
+  margin-left: -418px;
+  top: 20px;
+
+  min-height: 820px;
+  width: 878px;
+
+  background-image: url('../images/background/cardboard_red_1000x888.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+
+}
+
+#site_header {
+  position: relative;
+  width: 848px;
+  height: 100px;
+  margin-top: 5px;
+  left: 10px;
+  padding:5px;
+  color: #c4a880;
+
+  border: 1px dashed black;
+}
+
+#admin_menu {
+  background-image: url('../images/background/cardboard_brown_1000x888.jpg');
+  background-position: top center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color: #c4a880;
+  padding: 7px;
+  position: absolute;
+  bottom:0;
+  right: 0px;
+  color: #000;
+
+  border: 1px dashed black;
+}
+
+#adwords {
+  position: relative;
+  width: 160px;
+  height: 600px;
+  left: 10px;
+  margin-top: 10px;
+  float: left;
+
+  border: 1px dashed black;
+}
+
+#content {
+  position: relative;
+  margin-left: 184px;
+  margin-top: 10px;
+  background-image: url('../images/background/cardboard_brown_1000x888.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 685px;
+  padding-bottom: 5em;
+}
+
+.page_header {
+  position: relative;
+  width: 673px;
+  padding-left: 10px;
+  margin: 0;
+  height: 3.5em;
+
+  border-bottom: 1px dashed black;
+}
+
+.flash_notice {
+	display: inline;
+	color: #0E0;
+}
+
+.page_title {
+  position: absolute;
+  top: 55%;
+  height: 1em;
+  left: 10px;
+  margin-top: -0.5em;
+
+  font-size: 2em;
+  font-weight: 700;
+}
+
+.new_something {
+  position: absolute;
+  top: 0;
+  height: 1em;
+  background-image: url('../images/background/cardboard_red_1000x888.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  padding: 0 6px 16px 6px;
+
+
+  font-size: .8em;
+  right: -2px;
+}
+
+.new_something a { color: #c4a880; }
+.new_something a:visited { color: #947850; }
+.new_something a:hover { color: #fff;}
+
+.view_box {
+  position: relative;
+  padding-top: 5px;
+
+  border-bottom: 1px dashed black;
+}
+
+.view_box_for_category_tree{
+  position: relative;
+  padding-top: 5px;
+}
+
+.view_box_for_category_tree > li {
+    list-style: none;
+    margin-top: -5px;
+    margin-left: -34px;
+    border-top: 1px dashed black;
+    padding-top: 5px;
+}
+
+#cat_tree > .view_box_for_category_tree:first-child > li {
+    list-style: none;
+    margin-top: -5px;
+    border: none;
+}
+
+ul#cat_tree {
+    margin-top: 0px;
+}
+
+.view_admin_box {
+  background-image: url('../images/background/cardboard_red_1000x888.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 5px;
+  font-size: .8em;
+  color: #777;
+}
+
+.view_admin_box a { color: #c4a880; }
+.view_admin_box a:visited { color: #947850; }
+.view_admin_box a:hover { color: #fff;}
+
+.view_title_link {
+  padding-left: 10px;
+  font-weight: bold;
+}
+
+.view_title_link a {
+  font-size: 1.2em;
+}
+
+.specs {
+  width: 400px;
+  padding: .5em;
+  margin: .5em;
+  border: 1px dashed black;
+}

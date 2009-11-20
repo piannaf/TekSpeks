@@ -1,0 +1,27 @@
+<div class="view_box" id="spec_attribute_<%=h @spec_attribute.id %>">
+  <% if !@spec_attribute.specifications.blank? then %>
+    <span class="view_title_link">
+	  	There are specifications which reference this attribute. Please follow the links to delete these specifications if appropriate before trying to delete this attribute.
+    </span>
+    
+    <p>
+		  <div class="specs">
+		    <% for specification in @spec_attribute.specifications %>
+		        <%= link_to "#{specification.spec_value}#{specification.unit.abbrev}", specification %><br />
+		    <% end %>
+		  </div>
+		  <%= link_to 'Back', spec_attributes_path %>
+  	</p>
+	<% else %>
+    <span class="view_title_link">
+      Are you sure you want to delete <%= link_to @spec_attribute.name, @spec_attribute %>
+    </span>
+  <p>
+	<% form_for @spec_attribute, :html => { :method => 'delete' } do |f| %>
+			<%= f.error_messages %>
+	    <%= submit_tag "Delete" %>
+	    <%= submit_tag "Cancel", :name => "cancel" %>
+	<% end %>
+	</p>
+	<% end %>
+</div>

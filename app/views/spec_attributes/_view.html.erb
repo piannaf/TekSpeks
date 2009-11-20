@@ -1,0 +1,16 @@
+<div class="view_box" id="spec_attribute_<%=h spec_attribute.id %>">
+  <span class="view_title_link">
+    <%= link_to spec_attribute.name, spec_attribute %>
+  </span>
+
+  <div class="specs">
+    <% for specification in spec_attribute.specifications %>
+        <%= link_to "#{specification.spec_value}#{specification.unit.abbrev}", specification %><br />
+    <% end %>
+  </div>
+
+  <div class="view_admin_box" id="admin_box_<%=h spec_attribute.id %>">
+    <%= link_to 'Edit', edit_spec_attribute_path(spec_attribute) %> |
+    <%= link_to 'Destroy', delete_spec_attribute_path(spec_attribute) %>
+  </div>
+</div>

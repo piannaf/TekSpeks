@@ -1,0 +1,23 @@
+<div class="view_box" id="product_<%=h product.id %>">
+  <span class="view_title_link">
+    <%= link_to product.name, product%>
+    <% if product.brand then %>
+      by
+      <%= link_to product.brand.name, brand_path(product.brand) %>
+    <% end %>
+  </span>
+  <div class="specs">
+    <% for specification in product.specifications %>
+      <% if specification.spec_attribute_id.blank? then %>
+        <%= specification.spec_value %>
+      <% else %>
+        <%= specification.spec_attribute.name rescue "[needs attribute]"%>: <%= specification.spec_value %><%= specification.unit.abbrev rescue "[needs units]"%><br />
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="view_admin_box" id="admin_box_<%=h product.id %>">
+    <%= link_to 'Edit', edit_product_path(product) %> |
+    <%= link_to 'Destroy', delete_product_path(product) %>
+  </div>
+</div>

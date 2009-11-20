@@ -1,0 +1,38 @@
+<div class="view_box" id="category_<%=h @category.id %>">
+	<% if !@category.children.blank? || !@category.products.blank? then %>
+		<span class="view_title_link">
+			This category contains products or subcategories. Please follow the links to edit or delete these products or categories if appropriate before trying to delete this category.
+		</span>
+	
+		<p>
+		<% if !@category.products.blank? then %>
+			<h3>Products</h3>
+			<div class="specs">
+				<% for product in @category.products %>
+		      <%= link_to "#{product.name}", product %><br />
+		    <% end %>
+		  </div>
+		<% end %>
+		<% if !@category.children.blank? then %>
+			<h3>Children</h3>
+		  <div class="specs">
+				<% for child in @category.children %>
+		      <%= link_to "#{child.category}", child %><br />
+		    <% end %>
+		  </div>
+		<% end %>
+		  <%= link_to 'Back', categories_path %>
+		</p>
+	<% else %>
+    <span class="view_title_link">
+      Are you sure you want to delete <%= link_to h(@category.category), @category %>
+    </span>
+  	<p>
+		<% form_for @category, :html => { :method => 'delete' } do |f| %>
+			<%= f.error_messages %>
+	  	<%= submit_tag "Delete" %>
+	  	<%= submit_tag "Cancel", :name => "cancel" %>
+		<% end %>
+		</p>
+	<% end %>
+</div>

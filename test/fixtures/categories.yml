@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+root_with_products_and_children:
+  category: root
+  parent_id: 0
+  products: product_with_name_brand, product_with_name
+  
+root_with_children_but_no_products:
+  category: root2
+  parent_id: 0
+
+child_with_products:
+  category: child
+  parent: root_with_products_and_children
+  products: product_with_name_brand
+  
+child_with_no_products:
+  category: child2
+  parent: root_with_children_but_no_products
+  
+

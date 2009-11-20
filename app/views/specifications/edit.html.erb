@@ -1,0 +1,30 @@
+<div class="view_box" id="specification_<%=h @specification.id %>">
+<% form_for(@specification) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :spec_attribute_id, "Change the Attribute Specified" %><br />
+    <%= select "specification", "spec_attribute_id",
+    	SpecAttribute.find(:all).collect { |s| [ s.name, s.id ] },
+    	{ :include_blank => "Select an Attribute" }
+    %>    
+  </p>
+  <p>
+    <%= f.label :spec_value, "Change the Value Specified" %><br />
+    <%= f.text_field :spec_value %>
+  </p>
+  <p>
+    <%= f.label :unit_id, "Change the Unit Specified" %><br />
+    <%= select "specification", "unit_id",
+    	Unit.find(:all).collect { |u| [ u.name, u.id ] },
+    	{ :include_blank => "Select a Unit" }
+    %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @specification %> |
+<%= link_to 'Back', specifications_path %>
+</div>

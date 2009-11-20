@@ -1,0 +1,7 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+specification_with_spec_value_spec_attribute_product:
+  spec_value: 25
+  spec_attribute: height
+  unit: meter
+  products: product_with_name_brand

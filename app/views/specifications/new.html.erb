@@ -1,0 +1,32 @@
+<div class="view_box" id="new_specification">
+<% form_for(@specification) do |f| %>
+
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :spec_attribute_id, "Specify an Attribute" %><br />
+    <%= f.collection_select :spec_attribute_id,
+      SpecAttribute.find(:all),
+      :id, :name,
+      :prompt => "Select an Attribute"
+    %>
+  </p>
+  <p>
+    <%= f.label :spec_value, "Specify a Value" %><br />
+    <%= f.text_field :spec_value %>
+  </p>
+  <p>
+    <%= f.label :unit_id, "Specify Units" %><br />
+    <%= f.collection_select :unit_id,
+      Unit.find(:all),
+      :id, :name,
+      :prompt => "Select a Unit"
+    %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', specifications_path %>
+</div>

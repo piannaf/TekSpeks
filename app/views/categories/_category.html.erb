@@ -1,0 +1,25 @@
+<div class="view_box_for_category_tree" id="category_<%=h category.id %>">
+  <li id="cat_<%= category.id %>">
+    <span class="view_title_link">
+      <%= link_to h(category.category), category %>
+    </span>
+
+    <div class="specs">
+      <% for product in category.products %>
+        <%= link_to product.name, product %><br />
+      <% end %>
+    </div>
+
+    <ul>
+
+      <% if !category.children.empty? %>
+        <%= render :partial => category.children %>
+      <% end %>
+    </ul>
+  </li>
+
+  <div class="view_admin_box" id="admin_box_<%=h category.id %>">
+    <%= link_to 'Edit', edit_category_path(category) %> |
+    <%= link_to 'Destroy', delete_category_path(category) %>
+  </div>
+</div>

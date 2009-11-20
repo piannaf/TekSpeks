@@ -1,0 +1,3 @@
+<ul id="cat_tree">
+  <%= render :partial => Category.find_all_by_parent_id(0) %>
+</ul>

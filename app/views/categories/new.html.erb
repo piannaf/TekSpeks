@@ -1,0 +1,25 @@
+<div class="view_box" id="new_category">
+<% form_for(@category) do |f| %>
+
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :category, "Specify Category's Name" %><br />
+    <%= f.text_field :category %>
+  </p>
+  <p>
+    <%= f.label :parent_id, "Specify Category's Parent" %><br />
+    <%= f.collection_select :parent_id,
+      Category.find(:all),
+      :id, :category,
+      :prompt => "No Parent"
+    %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', categories_path %>
+
+</div>

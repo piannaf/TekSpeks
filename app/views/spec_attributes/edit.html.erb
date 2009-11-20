@@ -1,0 +1,25 @@
+<div class="view_box" id="spec_attribute_<%=h @spec_attribute.id %>">
+  <% form_for(@spec_attribute) do |f| %>
+
+    <%= f.error_messages %>
+
+    <p>
+      <%= f.label :name, "Change Attribute's Name" %><br />
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :attr_type_id, "Change Atrribute's Type" %><br />
+      <%= f.collection_select :attr_type_id,
+        AttrType.find(:all),
+        :id, :name,
+        :prompt => "Select a Type"
+      %>
+    </p>
+    <p>
+      <%= f.submit "Update" %>
+    </p>
+  <% end %>
+
+  <%= link_to 'Show', @spec_attribute %> |
+  <%= link_to 'Back', spec_attributes_path %>
+</div>

@@ -1,0 +1,20 @@
+TekSpeks -- Organizing the world's technical specifications
+
+I get annoyed when I can't find detailed information about a product so I
+thought to create a wiki-style site which would allow easy access to the most
+detailed technical specifications of any product that has ever existed.
+
+Version: Beta 0.3
+    * Database Backend nearly complete
+    * Some pages aren't completely HTML consistent
+    * Interaction not as intuitive as I would like
+    
+TODO:
+    + Javascript for more intuitive user interaction
+    * Better design
+    * Continue to develop Database
+
+TekSpeks is written with Ruby On Rails and is FOSS. Anyone may copy, modify, port
+to other languages, and distribute TekSpeks code as long as attribution is given
+to the original author: Justin Mancinelli.
+

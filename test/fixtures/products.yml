@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+product_with_name_brand:
+  name: product_name_one
+  brand: brand_with_name
+  categories: root_with_products_and_children, child_with_products
+  specifications: specification_with_spec_value_spec_attribute_product
+
+product_with_name:
+  name: product_name_two
+  categories: root_with_products_and_children

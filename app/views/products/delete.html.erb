@@ -1,0 +1,16 @@
+<div class="view_box" id="product_<%=h @product.id %>">
+    <span class="view_title_link">
+      Are you sure you want to delete <%= link_to @product.name, @product%>
+    		<% if @product.brand then %>
+      		by
+      		<%= link_to @product.brand.name, brand_path(@product.brand) %>
+    		<% end %>
+    </span>
+  <p>
+	<% form_for @product, :html => { :method => 'delete' } do |f| %>
+			<%= f.error_messages %>
+	    <%= submit_tag "Delete" %>
+	    <%= submit_tag "Cancel", :name => "cancel" %>
+	<% end %>
+	</p>
+</div>

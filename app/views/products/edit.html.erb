@@ -1,0 +1,39 @@
+<div class="view_box" id="product_<%=h @product.id %>">
+<% form_for(@product) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name, "Change Product's Name" %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :brand_id, "Change Product's Brand" %><br />
+    <%= f.collection_select :brand_id,
+      Brand.find(:all),
+      :id, :name,
+      :prompt => "Select a Brand"
+    %>
+  </p>
+  <p>
+    <%= f.label :category_ids, "Change Product's Categories" %>
+    <ul>
+      <%= render :partial => 'checkbox_category', :collection => Category.find_all_by_parent_id(0)%>
+    </ul>
+  </p>
+  <p>
+    <%= f.label :specification_ids, "Change Product's Specifications" %>
+    <ul>
+
+
+
+      <%= render :partial => 'checkbox_specification', :collection => SpecAttribute.find(:all) %>
+    </ul>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @product %> |
+<%= link_to 'Back', products_path %>
+</div>

@@ -1,0 +1,17 @@
+<div class="view_box" id="attr_type_<%=h @attr_type.id %>">
+
+<% form_for(@attr_type) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name, "Change Type's Name" %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @attr_type %> |
+<%= link_to 'Back', attr_types_path %>
+</div>

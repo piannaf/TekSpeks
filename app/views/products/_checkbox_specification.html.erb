@@ -1,0 +1,26 @@
+<% if !@descriptions.blank? then %>
+
+<li id="descriptions">
+  Descriptions
+
+  <ul>
+    <% for specification in @descriptions %>
+      <% if specification.spec_attribute.blank? %>
+        <%= check_box_tag "product[specification_ids][]", specification.id, @product.specifications.include?(specification) %>
+        <%= specification.spec_value rescue nil%><%= specification.unit.abbrev rescue nil%><br />
+      <% end %>
+    <% end %>
+  </ul>
+</li>
+<% end %>
+
+<li id="spec_<%= checkbox_specification.id %>">
+  <%= checkbox_specification.name %>
+
+  <ul>
+    <% for specification in checkbox_specification.specifications %>
+        <%= check_box_tag "product[specification_ids][]", specification.id, @product.specifications.include?(specification) %>
+        <%= specification.spec_value rescue nil%><%= specification.unit.abbrev rescue nil%><br />
+    <% end %> 
+  </ul>
+</li>

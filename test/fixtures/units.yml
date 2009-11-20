@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+meter:
+    name: meter
+    abbrev: m
+    attr_type: length
+    system: metric
+    
+pound:
+    name: pound
+    abbrev: lbs
+    attr_type: mass
+    system: imperial
+    
+inch:
+    name: inch
+    abbrev: in
+    attr_type: length
+    system: imperial
